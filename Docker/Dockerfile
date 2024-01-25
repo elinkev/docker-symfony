@@ -19,7 +19,9 @@ RUN apt-get -y install unzip
 RUN pecl install xdebug
 
 # Symfiny cli recommendations
-RUN docker-php-ext-configure intl
+RUN apt-get install -y libicu-dev
+RUN docker-php-ext-configure intl 
+RUN docker-php-ext-install intl opcache
 
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
