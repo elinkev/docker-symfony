@@ -7,13 +7,19 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 
 # .ini Configs
 COPY ./xdebug.ini "$PHP_INI_DIR/conf.d/99-xdebug.ini"
+COPY ./opcache.ini "$PHP_INI_DIR/conf.d/docker-php-ext-opcache.ini"
 
 # Composer requirements
 RUN apt-get -y update
 RUN apt-get -y install git
 RUN apt-get -y install zip
 RUN apt-get -y install unzip
+
+# XDebug
 RUN pecl install xdebug
+
+# Symfiny cli recommendations
+RUN docker-php-ext-configure intl
 
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
