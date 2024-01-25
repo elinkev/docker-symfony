@@ -6,6 +6,7 @@ services:
     build: ./Docker
     volumes:
       - ${PATH_TO_SYMFONY_PROJECT}:/var/www/html
+      - "~/.gitconfig:/etc/gitconfig"
     ports:
       - "80:80"
 

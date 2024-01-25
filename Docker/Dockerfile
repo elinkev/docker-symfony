@@ -8,6 +8,7 @@ RUN sed -ri -e 's!/var/www/!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/apache2.conf
 # .ini Configs
 COPY ./xdebug.ini "$PHP_INI_DIR/conf.d/99-xdebug.ini"
 COPY ./opcache.ini "$PHP_INI_DIR/conf.d/docker-php-ext-opcache.ini"
+RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
 
 # Composer requirements
 RUN apt-get -y update
