@@ -24,3 +24,4 @@
 ```
 ## Future plans
 - Add VSC devcontainer configs
+- How to setup and deploy project to prod (platform.sh or other)
