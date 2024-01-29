@@ -22,3 +22,5 @@
     git branch -M master
     git push -u origin master
 ```
+## Future plans
+- Add VSC devcontainer configs
