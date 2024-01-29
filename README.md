@@ -1,5 +1,5 @@
-# docker-symfony
-This repository is ment to help quickly start a new symfony project in a dockerized environment with the latest php/symfony images
+## Requirements
+- Docker & git
 
 ## Installation
 
