@@ -5,7 +5,7 @@
 
 - Start by cloning this repository - `git clone git@github.com:elinkev/docker-symfony.git project_name`
 
-- Create anm `.env` file and configure it `cp .env.dist .env` 
+- Create an `.env` file and configure it `cp .env.dist .env` 
 
 - Build the docker image and launch the containers:
 ```bash
