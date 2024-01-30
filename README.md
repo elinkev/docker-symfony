@@ -10,7 +10,7 @@
 - Build the docker image and launch the containers:
 ```bash
     docker build --pull --rm -f "Docker\Dockerfile" -t project_name:latest "Docker"
-    docmer-compose up
+    docker-compose up
 ```
 
 - Start a bash shell `exec -it project_name-php bash` 
