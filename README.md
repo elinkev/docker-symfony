@@ -13,7 +13,7 @@
     docker-compose up
 ```
 
-- Start a bash shell `exec -it project_name-php bash` 
+- Start a bash shell `docker exec -it project_name-php bash` 
 - Check symfony requirements `symfony check:requirements` and start a new symfony project `symfony new . --version="7.0.*"`
 - Create a new repository in github for your project https://github.com/new 
 - Remove the initial cloned git details `rm -rf .git` and initialize new empty git repo `git init` then add the newly created repository, commit and push
