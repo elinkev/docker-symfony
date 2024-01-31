@@ -26,7 +26,20 @@
 ## Troubleshooting
 - Getting xdebug/opcache notifications when executing `php -v` or other commands - this is because zend_extension= config is being duplicated by something
 - Xdebug showing errors when executing commands in cli - set `xdebug.start_with_request=trigger` and then use either a browser extension as a trigger, or by exporting export XDEBUG_SESSION=yourname on the command line
-- 
+- VSCode not reacting to xdebug - create launch.json config with correct `pathMappings`:
+```bash
+    "configurations": [
+        {
+            "name": "Listen for Xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "pathMappings": {
+                "/var/www/html": "${workspaceFolder}/app"
+            }
+        }
+    ]
+```
 ## Future plans
 - Add VSC devcontainer configs
 - How to setup and deploy project to prod (platform.sh or other)
