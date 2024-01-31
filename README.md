@@ -40,6 +40,8 @@
         }
     ]
 ```
+- PHP executable errors - `"php.validate.executablePath": "docker exec -t project_name-php php"` 
+
 ## Future plans
 - Add VSC devcontainer configs
 - How to setup and deploy project to prod (platform.sh or other)
