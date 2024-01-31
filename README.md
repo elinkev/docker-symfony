@@ -23,6 +23,10 @@
     git branch -M master
     git push -u origin master
 ```
+## Troubleshooting
+- Getting xdebug/opcache notifications when executing `php -v` or other commands - this is because zend_extension= config is being duplicated by something
+- Xdebug showing errors when executing commands in cli - set `xdebug.start_with_request=trigger` and then use either a browser extension as a trigger, or by exporting export XDEBUG_SESSION=yourname on the command line
+- 
 ## Future plans
 - Add VSC devcontainer configs
 - How to setup and deploy project to prod (platform.sh or other)
