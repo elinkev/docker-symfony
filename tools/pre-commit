@@ -18,13 +18,9 @@ function __run() #(step, name, cmd)
     if [[ 0 == $exitcode || 130 == $exitcode ]]; then
         echo -e "${C_GREEN}OK!${C_RESET}"
     else
-        echo -e "${C_RED}NOK!${C_RESET}\n\n$output"
+        echo -e "${C_RED}ERR!${C_RESET}\n\n$output"
         exit 1
     fi
 }
-
-modified="git diff --diff-filter=M --name-only --cached  | grep \".php$\""
-ignore="resources/lang,resources/views,bootstrap/helpers,database/migrations,bin"
-phpcs="./vendor/bin/phpcs ./app --report=code --colors --report-width=80 --standard=PSR2 --ignore=${ignore}"
 
 __run "1/1" "phpcs" "${PHPCS} fix --diff --dry-run"
