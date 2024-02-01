@@ -37,3 +37,8 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony5/
 
 # Install NVM
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+
+# Adding entrypoint that will install phpcs, phpstan, other stuff
+# https://stackoverflow.com/a/68665941
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["bash"]
