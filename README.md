@@ -41,6 +41,17 @@
     ]
 ```
 - PHP executable errors - `"php.validate.executablePath": "docker exec -t project_name-php php"` 
+- To run phpcs on single file after save, `runonsave` extension is needed with this config for windows (adjust for linux):
+```bash
+    "emeraldwalk.runonsave": {
+        "commands": [
+            {
+                "match": "\\.php$",
+                "cmd": "docker exec -t project_name-php ./tools/windows/php-cs-fixer.sh ${relativeFile}"
+            }
+        ]
+    },
+```
 
 ## Future plans
 - Add VSC devcontainer configs
