@@ -1,3 +1,4 @@
 .env
 /var/
 .vscode
+/tools/php-cs-fixer
