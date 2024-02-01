@@ -42,4 +42,4 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["bash"]
+CMD ["apache2-foreground"]
