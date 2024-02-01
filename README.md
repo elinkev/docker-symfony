@@ -52,6 +52,7 @@
         ]
     },
 ```
+- Pre commit hook not working in vsc - change `PHPCS="./tools/php-cs-fixer/vendor/bin/php-cs-fixer"` to `PHPCS="docker exec -t project_name-php ./tools/php-cs-fixer/vendor/bin/php-cs-fixer"`
 
 ## Future plans
 - Add VSC devcontainer configs
