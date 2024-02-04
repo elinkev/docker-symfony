@@ -16,15 +16,22 @@ RUN apt-get -y install nano
 RUN apt-get install -y libicu-dev
 RUN docker-php-ext-configure intl 
 
+<<<<<<< HEAD:docker/php/Dockerfile
 # DB Drivers
 RUN docker-php-ext-install pdo pdo_mysql
 
+=======
+>>>>>>> 856f1c3d123b8214f046d2da64b037dab750b27e:Docker/Dockerfile
 # XDebug & opcache
 RUN docker-php-ext-install intl opcache
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 # Copy php.ini
+<<<<<<< HEAD:docker/php/Dockerfile
 COPY ./config/php.ini /usr/local/etc/php/
+=======
+COPY ./php.ini /usr/local/etc/php/
+>>>>>>> 856f1c3d123b8214f046d2da64b037dab750b27e:Docker/Dockerfile
 
 # Replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -41,13 +48,20 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony5/
 # Install NVM
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
+<<<<<<< HEAD:docker/php/Dockerfile
 # Copy files from docker root dir into container, then process them in the entrypoint script
 COPY ./config/php-cs-fixer.dist /.php-cs-fixer.dist.php
 COPY ./tools/php-cs-fixer.dist /usr/local/bin/php-cs-fixer.sh
 RUN chmod +x /usr/local/bin/php-cs-fixer.sh
 
+=======
+>>>>>>> 856f1c3d123b8214f046d2da64b037dab750b27e:Docker/Dockerfile
 # Adding entrypoint (https://stackoverflow.com/a/68665941)
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
+<<<<<<< HEAD:docker/php/Dockerfile
 CMD ["apache2-foreground"]
+=======
+CMD ["apache2-foreground"]
+>>>>>>> 856f1c3d123b8214f046d2da64b037dab750b27e:Docker/Dockerfile

@@ -1,3 +1,10 @@
 .env
+<<<<<<< HEAD
 .vscode
 /var/
+=======
+/var/
+.vscode
+/tools/php-cs-fixer
+.php-cs-fixer.cache
+>>>>>>> 856f1c3d123b8214f046d2da64b037dab750b27e
