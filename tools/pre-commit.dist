@@ -1,0 +1,28 @@
+#!/bin/sh
+
+C_RESET='\e[0m'
+C_RED='\e[31m'
+C_GREEN='\e[32m'
+C_YELLOW='\e[33m'
+
+PHPCS="./app/backend/tools/php-cs-fixer/vendor/bin/php-cs-fixer"
+PHPSTAN="./app/backend/ vendor/bin/phpstan"
+
+function __run() #(step, name, cmd)
+{
+    local color output exitcode
+
+    printf "${C_YELLOW}[%s]${C_RESET} %-20s" "$1" "$2"
+    output=$(eval "$3" 2>&1)
+    exitcode=$?
+
+    if [[ 0 == $exitcode || 130 == $exitcode ]]; then
+        echo -e "${C_GREEN}OK!${C_RESET}"
+    else
+        echo -e "${C_RED}ERR!${C_RESET}\n\n$output"
+        exit 1
+    fi
+}
+
+__run "1/2" "phpcs" "${PHPCS} fix --diff --dry-run"
+__run "2/2" "phpstan" "${PHPSTAN} analyse src tests"

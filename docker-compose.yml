@@ -3,16 +3,24 @@ version: "3.8"
 services:
   app:
     container_name: "${PROJECT_NAME}-php"
-    build: ./Docker
+    build: ./docker/php
     volumes:
-      - ${PATH_TO_SYMFONY_PROJECT}:/var/www/html
-      - "~/.gitconfig:/etc/gitconfig"
+      - ./app/backend:/var/www/html
+      # - "~/.gitconfig:/etc/gitconfig"
     ports:
       - "80:80"
 
+  mailhog:
+    image: mailhog/mailhog:latest
+    container_name: "${PROJECT_NAME}-mailhog"
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+
   db:
-    container_name: "${PROJECT_NAME}-mariadb"
     image: mariadb:latest
+    container_name: "${PROJECT_NAME}-mariadb"
+    restart: always
     environment:
       - MARIADB_ROOT_USER=${ROOT_USER}
       - MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=yes
@@ -21,5 +29,12 @@ services:
       - MARIADB_DATABASE=${DB_NAME}
     volumes:
       - ${PATH_TO_DB_DATA}:/var/lib/mysql:rw
+
+  adminer:
+    image: adminer:latest
+    container_name: "${PROJECT_NAME}-adminer"
+    restart: always
+    environment:
+      - ADMINER_DEFAULT_SERVER=db
     ports:
-      - "3306:3306"
+      - 8080:8080
