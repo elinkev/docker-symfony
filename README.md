@@ -7,6 +7,7 @@ Current requirements are docker and git. This is a skeleton repository ment to q
     Adminer - http://localhost:8080/
     Mailhog - http://localhost:8025/
 ## Project structure
+```
 .
 ├── app
 │   ├── backend
@@ -29,6 +30,7 @@ Current requirements are docker and git. This is a skeleton repository ment to q
 ├──.gitignore
 ├── docker-compose.yaml
 └── README.md
+```
 
 ## Installation
 - Start by cloning this repository - git clone git@github.com:elinkev/docker-symfony.git project_name
