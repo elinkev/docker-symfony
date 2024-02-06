@@ -8,7 +8,7 @@ Current requirements are docker and git. This is a skeleton repository ment to q
     Mailhog - http://localhost:8025/
     
 ## Project structure
-```
+
 ```
 .
 ├─ project
