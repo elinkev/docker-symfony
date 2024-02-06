@@ -42,6 +42,7 @@ Current requirements are docker and git. This is a skeleton repository ment to q
 
 ## Troubleshooting
 Xdebug:
+
     - Getting xdebug/opcache notifications when executing any cli commands - zend_extension= in .ini files is being duplicated somewhere
     - Xdebug showing errors when executing commands in cli - set xdebug.start_with_request=trigger and then use either a browser extension as a trigger, or by exporting export XDEBUG_SESSION=yourname on the cli
     - VSCode not reacting to xdebug - create launch.json config with correct pathMappings values, check APACHE_DOCUMENT_ROOT in Dockerfile and volumes in docker-compose up, example of working config:
@@ -61,7 +62,9 @@ Xdebug:
             }
         ]    
         ```
+
 VSCode:
+
     - PHP executable errors - you probably dont have php installed locally, so point it to the docker container "php.validate.executablePath": "docker exec -t project_name-php php"
     - To run phpcs on single file after save, runonsave extension is needed with this config for windows (adjust for linux), make sure its a workspace setting or you will have to change the project_name constantly:
         ```bash
@@ -76,5 +79,6 @@ VSCode:
         ```
     - Pre commit hook not working in vsc - change pre-commit hook PHPCS="./tools/php-cs-fixer/vendor/bin/php-cs-fixer" to PHPCS="docker exec -t project_name-php ./tools/php-cs-fixer/vendor/bin/php-cs-fixer"
 Mailhog:
+
     - After installing symfony/mailer, .env parameter should look like this - MAILER_DSN=smtp://mailhog:1025
 
