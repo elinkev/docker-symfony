@@ -2,7 +2,7 @@
 Current requirements are docker and git. This is a skeleton repository ment to quickly setup a working environment with this stack:
 
     Backend - Symfony (API), phpcs, phpstan, phpunit, mailhog
-    Frotend - React
+    Frotend - React, vite
     DB - MariaDB
 
     Symfony - http://localhost
