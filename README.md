@@ -9,6 +9,7 @@ Current requirements are docker and git. This is a skeleton repository ment to q
     
 ## Project structure
 ```
+```
 .
 ├─ project
 │  ├─ backend
@@ -76,3 +77,4 @@ VSCode:
     - Pre commit hook not working in vsc - change pre-commit hook PHPCS="./tools/php-cs-fixer/vendor/bin/php-cs-fixer" to PHPCS="docker exec -t project_name-php ./tools/php-cs-fixer/vendor/bin/php-cs-fixer"
 Mailhog:
     - After installing symfony/mailer, .env parameter should look like this - MAILER_DSN=smtp://mailhog:1025
+
