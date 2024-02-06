@@ -1,12 +1,20 @@
 version: "3.8"
 
 services:
-  app:
-    container_name: "${PROJECT_NAME}-php"
-    build: ./docker/php
+  frontend:
+    container_name: "${PROJECT_NAME}-node"
+    build: ./project/frontend
     volumes:
-      - ./app/backend:/var/www/html
-      # - "~/.gitconfig:/etc/gitconfig"
+      - ./project/frontend/app:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+
+  backend:
+    container_name: "${PROJECT_NAME}-php"
+    build: ./project/backend
+    volumes:
+      - ./project/backend/app:/var/www/html
     ports:
       - "80:80"
 

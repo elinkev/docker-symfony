@@ -38,16 +38,18 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Install Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
 
-# Install NVM
-RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+# # Install NVM
+# RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 
 # Copy files from docker root dir into container, then process them in the entrypoint script
-COPY ./config/php-cs-fixer.dist /.php-cs-fixer.dist.php
-COPY ./tools/php-cs-fixer.dist /usr/local/bin/php-cs-fixer.sh
+COPY ./config/php-cs-fixer.dist ./app/.php-cs-fixer.dist.php
+COPY ./tools/php-cs-fixer.sh /usr/local/bin/php-cs-fixer.sh
 RUN chmod +x /usr/local/bin/php-cs-fixer.sh
 
 # Adding entrypoint (https://stackoverflow.com/a/68665941)
-COPY entrypoint.sh /entrypoint.sh
+COPY ./tools/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+# WORKDIR /var/www/html
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]

@@ -3,7 +3,7 @@
 # Installing symfony if /backend directory is empty
 if [ -z "$(ls -A)" ]; then
     echo "Installing symfony"
-    set -x
+    # Symfony doesnt allow installation into a dir that is not empty
     # Install symfony with composer, cli initialized git which is not needed in this dir
     symfony composer create-project symfony/skeleton:"7.0.*" . &&
     symfony composer config extra.symfony.allow-contrib true &&
@@ -27,13 +27,5 @@ if [ ! -d "$PHPCSPATH" ]; then
     mv /.php-cs-fixer.dist.php .
     set +x
 fi
-
-# # Pre commit hook
-# PRECOMMITHOOKPATH=./tools/pre-commit
-# if [ ! -e ".git/hooks/pre-commit" ]; then
-#     echo "Copying pre-commit hook into .git dir"
-#     cp "$PRECOMMITHOOKPATH" .git/hooks/pre-commit
-#     chmod +x .git/hooks/pre-commit
-# fi
 
 exec "$@"

@@ -6,29 +6,30 @@ Current requirements are docker and git. This is a skeleton repository ment to q
 
     Adminer - http://localhost:8080/
     Mailhog - http://localhost:8025/
+    
 ## Project structure
+```
 .
-├── app
-│   ├── backend
-|   |   ├── tools
-|   |   |    ├── php-cs-fixer
-|   |   |    └── php-cs-fixer.sh
-|   |   └── .php-cs-fixer.dist.php
-│   └── frontend
-├── docker
-│   └── php
-|       ├── config
-|       |   └── php.ini 
-|       ├── tools
-|       |   └── php-cs-fixer.dist
-|       ├── entrypoint.sh 
-│       └── Dockerfile
-├── tools
-|   └── pre-commit.dist
-├──.env.dist
-├──.gitignore
-├── docker-compose.yaml
-└── README.md
+├─ project
+│  ├─ backend
+│  │  ├─ app (symfony)
+│  │  ├─ config
+│  │  │  ├─ php-cs-fixer.dist
+│  │  │  └─ php.ini
+│  │  ├─ Dockerfile
+│  │  └─ tools
+│  │     ├─ entrypoint.sh
+│  │     └─ php-cs-fixer.sh
+│  └─ frontend
+│     ├─ app (react + vite)
+│     ├─ .dockerignore
+│     └─ Dockerfile
+├─ tools
+│  └─ pre-commit.dist
+├─ docker-compose.yml
+└─ README.md
+
+```
 
 ## Installation
 - Start by cloning this repository - git clone git@github.com:elinkev/docker-symfony.git project_name
@@ -44,7 +45,7 @@ Xdebug:
     - Xdebug showing errors when executing commands in cli - set xdebug.start_with_request=trigger and then use either a browser extension as a trigger, or by exporting export XDEBUG_SESSION=yourname on the cli
     - VSCode not reacting to xdebug - create launch.json config with correct pathMappings values, check APACHE_DOCUMENT_ROOT in Dockerfile and volumes in docker-compose up, example of working config:
         `ENV APACHE_DOCUMENT_ROOT=/var/www/html/public`
-        `./app/backend:/var/www/html`
+        `./project/backend/app:/var/www/html`
 
         ```bash
         "configurations": [
@@ -54,7 +55,7 @@ Xdebug:
                 "request": "launch",
                 "port": 9003,
                 "pathMappings": {
-                    "/var/www/html": "${workspaceFolder}/app/backend"
+                    "/var/www/html": "${workspaceFolder}/project/backend/app"
                 }
             }
         ]    
