@@ -4,7 +4,9 @@ Current requirements are docker and git. This is a skeleton repository ment to q
     Backend - Symfony (API), phpcs, phpstan, phpunit, mailhog
     Frotend - React
     DB - MariaDB
-    
+
+    Symfony - http://localhost
+    React - http://localhost:5173/
     Adminer - http://localhost:8080/
     Mailhog - http://localhost:8025/
     

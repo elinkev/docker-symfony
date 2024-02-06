@@ -11,6 +11,7 @@ if [ -z "$(ls -A)" ]; then
     symfony composer require symfony/orm-pack &&
     symfony composer require symfony/maker-bundle --dev &&
     symfony composer require symfony/mailer &&
+    symfony composer require nelmio/cors-bundle &&
     symfony composer require phpstan/phpstan --dev &&
     symfony composer require phpunit/phpunit ^11 --dev &&
     set +x
