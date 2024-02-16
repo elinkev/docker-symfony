@@ -1,9 +1,18 @@
 {
    "recommendations":[
+      // Node
       "esbenp.prettier-vscode",
       "dbaeumer.vscode-eslint",
       "bradlc.vscode-tailwindcss",
+      // PHP
       "xdebug.php-debug",
-      "emeraldwalk.RunOnSave"
+      "emeraldwalk.RunOnSave",
+      "streetsidesoftware.code-spell-checker",
+      "Postman.postman-for-vscode",
+      "mikestead.dotenv",
+      "bmewburn.vscode-intelephense-client",
+      "DEVSENSE.composer-php-vscode",
+      "hakcorp.php-awesome-snippets",
+      "DEVSENSE.phptools-vscode"
    ]
 }

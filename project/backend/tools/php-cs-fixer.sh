@@ -11,6 +11,6 @@ fi
 
 originalPath="$1"
 linuxPath=$(echo $originalPath | tr '\\' '/')
-linuxPath=$(echo "$linuxPath" | sed 's|project/backend/app||')
+linuxPath=$(echo "$linuxPath" | sed 's|project/backend/app/||')
 
 ./tools/php-cs-fixer/vendor/bin/php-cs-fixer fix $linuxPath

@@ -3,7 +3,7 @@
       "commands":[
          {
             "match":"\\.php$",
-            "cmd":"docker exec -t project-php ./tools/php-cs-fixer.sh ${relativeFile}"
+            "cmd":"docker exec -t test-php ./tools/php-cs-fixer.sh ${relativeFile}"
          }
       ]
    },
