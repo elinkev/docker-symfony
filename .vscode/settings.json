@@ -1,0 +1,16 @@
+{
+   "emeraldwalk.runonsave":{
+      "commands":[
+         {
+            "match":"\\.php$",
+            "cmd":"docker exec -t project-php ./tools/php-cs-fixer.sh ${relativeFile}"
+         }
+      ]
+   },
+   "editor.defaultFormatter":"esbenp.prettier-vscode",
+   "editor.formatOnPaste":true,
+   "editor.formatOnSave":true,
+   "editor.formatOnSaveMode":"file",
+   "prettier.requireConfig":true,
+   "css.lint.unknownAtRules":"ignore"
+}
