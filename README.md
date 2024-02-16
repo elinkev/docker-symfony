@@ -1,8 +1,8 @@
-## Requirements & what this is
-Current requirements are docker and git. This is a skeleton repository ment to quickly setup a working environment with this stack:
+## Overview and Requirements
+This repository serves as a skeleton structure to swiftly set up a development environment with the following stack:
 
     Backend - Symfony (API), phpcs, phpstan, phpunit, mailhog
-    Frotend - React, vite
+    Frotend - React + typescript, vite, eslint, prettier
     DB - MariaDB
 
     Symfony - http://localhost
