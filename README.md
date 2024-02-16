@@ -26,8 +26,14 @@ Current requirements are docker and git. This is a skeleton repository ment to q
 │  │     └─ php-cs-fixer.sh
 │  └─ frontend
 │     ├─ app (react + vite)
+│     ├─ config
+│     │  ├─ .eslintrc.json.dist
+│     │  ├─ .prettierrc.dist
+│     │  └─ tailwind.config.js.dist
 │     ├─ .dockerignore
-│     └─ Dockerfile
+│     ├─ Dockerfile
+│     └─ tools
+│        └─ entrypoint.sh
 ├─ tools
 │  └─ pre-commit.dist
 ├─ docker-compose.yml
@@ -81,4 +87,22 @@ VSCode:
 
 Mailhog:
 - After installing symfony/mailer, .env parameter should look like this - MAILER_DSN=smtp://mailhog:1025
+
+Tailwind:
+- Remove all css from main .css file (index.css), and put:
+```
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+```
+
+Vite:
+- Add this config to vite.config.ts to instantly see changes when saving files
+```
+server: {
+    watch: {
+      usePolling: true,
+  },
+}
+```
 

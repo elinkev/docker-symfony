@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Installing symfony if /backend directory is empty
+# Installing backend if /app (workdir) directory is empty
 if [ -z "$(ls -A)" ]; then
     echo "Installing symfony"
     # Symfony doesnt allow installation into a dir that is not empty
