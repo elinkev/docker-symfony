@@ -71,6 +71,14 @@ Xdebug:
         ]    
 
 VSCode:
+- entrypoint.sh not found on windows:
+    Comment out ENTRYPOINT ["/entrypoint.sh"] in Dockerfile
+    Run docker-compose build --no-cache backend
+    Connect to container: docker run --rm -it project_name-php sh
+    Run head -1 /entrypoint.sh | cat -v
+    If you see ^M, the file has Windows line endings (CRLF)
+    Open entrypoint.sh in VS Code, change CRLF to LF (bottom-right), save
+    Uncomment ENTRYPOINT in Dockerfile, rebuild, and run again
 - PHP executable errors - you probably dont have php installed locally, so point it to the docker container "php.validate.executablePath": "docker exec -t project_name-php php"
 - To run phpcs on single file after save, runonsave extension is needed with this config for windows (adjust for linux), make sure its a workspace setting or you will have to change the project_name constantly:
     
