@@ -51,6 +51,14 @@ This repository serves as a skeleton structure to swiftly set up a development e
 
 ## Troubleshooting
 Xdebug:
+- entrypoint.sh not found on windows:
+    - Comment out ENTRYPOINT ["/entrypoint.sh"] in Dockerfile
+    - Run docker-compose build --no-cache backend
+    - Connect to container: docker run --rm -it project_name-php sh
+    - Run head -1 /entrypoint.sh | cat -v
+    - If you see ^M, the file has Windows line endings (CRLF)
+    - Open entrypoint.sh in VS Code, change CRLF to LF (bottom-right), save
+    - Uncomment ENTRYPOINT in Dockerfile, rebuild, and run again
 - Getting xdebug/opcache notifications when executing any cli commands - zend_extension= in .ini files is being duplicated somewhere
 - Xdebug showing errors when executing commands in cli - set xdebug.start_with_request=trigger and then use either a browser extension as a trigger, or by exporting export XDEBUG_SESSION=yourname on the cli
 - VSCode not reacting to xdebug - create launch.json config with correct pathMappings values, check APACHE_DOCUMENT_ROOT in Dockerfile and volumes in docker-compose up, example of working config:
@@ -71,14 +79,6 @@ Xdebug:
         ]    
 
 VSCode:
-- entrypoint.sh not found on windows:
-    Comment out ENTRYPOINT ["/entrypoint.sh"] in Dockerfile
-    Run docker-compose build --no-cache backend
-    Connect to container: docker run --rm -it project_name-php sh
-    Run head -1 /entrypoint.sh | cat -v
-    If you see ^M, the file has Windows line endings (CRLF)
-    Open entrypoint.sh in VS Code, change CRLF to LF (bottom-right), save
-    Uncomment ENTRYPOINT in Dockerfile, rebuild, and run again
 - PHP executable errors - you probably dont have php installed locally, so point it to the docker container "php.validate.executablePath": "docker exec -t project_name-php php"
 - To run phpcs on single file after save, runonsave extension is needed with this config for windows (adjust for linux), make sure its a workspace setting or you will have to change the project_name constantly:
     
